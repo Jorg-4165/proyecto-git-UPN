@@ -24,6 +24,7 @@ if __name__ == "__main__":
         "Ana Torres": [16, 14, 12],
         "Luis Ramos": [10, 9, 11],
         "Maria Quispe": [18, 17, 19],
+        "Jorge Carua": [15, 16, 14],
     }
     print("=== Innovatec Education - Reporte de notas ===")
     print(f"{'Estudiante':<15} {'Notas':<15} {'Prom.':>6}   Estado")
