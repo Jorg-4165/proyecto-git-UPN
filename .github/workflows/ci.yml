@@ -1,0 +1,28 @@
+name: CI - Notas Innovatec
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Ejecutar pruebas
+        run: python -m unittest -v
+      - name: Ejecutar el programa
+        run: python notas.py
+
+  docker:
+    needs: pruebas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Construir imagen Docker
+        run: docker build -t notas-innovatec .
+      - name: Ejecutar en contenedor
+        run: docker run --rm notas-innovatec
